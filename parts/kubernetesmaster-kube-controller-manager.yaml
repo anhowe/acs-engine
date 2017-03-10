@@ -24,7 +24,7 @@ spec:
         - "--root-ca-file=/etc/kubernetes/certs/ca.crt"
         - "--service-account-private-key-file=/etc/kubernetes/certs/apiserver.key"
         - "--leader-elect=true"
-        - "--v=2"
+        - "--v=10"
       volumeMounts: 
         - name: "etc-kubernetes"
           mountPath: "/etc/kubernetes"

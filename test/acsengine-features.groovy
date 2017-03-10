@@ -37,6 +37,7 @@ node {
                 env.SUBSCRIPTION_ID="${SUBSCRIPTION_ID}"
                 env.CLUSTER_SERVICE_PRINCIPAL_CLIENT_ID="${CLUSTER_SERVICE_PRINCIPAL_CLIENT_ID}"
                 env.CLUSTER_SERVICE_PRINCIPAL_CLIENT_SECRET="${CLUSTER_SERVICE_PRINCIPAL_CLIENT_SECRET}"
+                env.CUSTOM_HYPERKUBE_SPEC="docker.io/anhowe/hyperkube-amd64:v1.6.0-beta2-anhowe"
 
                 sh("printf 'acs-features-test%x' \$(date '+%s') > INSTANCE_NAME_PREFIX")
                 prefix = readFile('INSTANCE_NAME_PREFIX').trim()
@@ -122,10 +123,10 @@ node {
               echo "Exception ${exc}"
             }
             // Final clean up
-            sh("rm -rf ${clone_dir}/_output")
-            sh("rm -rf ${clone_dir}/.azure")
-            sh("rm -rf ${clone_dir}/.kube")
-            sh("rm -rf ${junit_dir}")
+            //sh("rm -rf ${clone_dir}/_output")
+            //sh("rm -rf ${clone_dir}/.azure")
+            //sh("rm -rf ${clone_dir}/.kube")
+            //sh("rm -rf ${junit_dir}")
           }
         }
       }
