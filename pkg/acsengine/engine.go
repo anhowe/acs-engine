@@ -613,6 +613,13 @@ func (t *TemplateGenerator) getTemplateFuncMap(cs *api.ContainerService) map[str
 			}
 			return GetSizeMap()
 		},
+		"RequiresKubeDNSOptionalFlag": func() bool {
+			if cs.Properties.OrchestratorProfile.OrchestratorVersion == api.Kubernetes153 ||
+				cs.Properties.OrchestratorProfile.OrchestratorVersion == api.Kubernetes157 {
+				return false
+			}
+			return true
+		},
 		"GetClassicMode": func() bool {
 			return t.ClassicMode
 		},

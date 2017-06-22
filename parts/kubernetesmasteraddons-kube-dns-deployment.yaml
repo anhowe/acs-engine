@@ -26,7 +26,7 @@ spec:
       - name: kube-dns-config
         configMap:
           name: kube-dns
-          optional: true
+          <kubernetesKubeDNSOptionalFlag>
       containers:
       - args:
         - "--domain=cluster.local."

@@ -18,6 +18,11 @@
     "kubernetesPodInfraContainerSpec": "[parameters('kubernetesPodInfraContainerSpec')]",
     "kubernetesKubeDNSSpec": "[parameters('kubernetesKubeDNSSpec')]",
     "kubernetesDNSMasqSpec": "[parameters('kubernetesDNSMasqSpec')]",
+{{if RequiresKubeDNSOptionalFlag}}
+    "kubernetesKubeDNSOptionalFlag": "optional: true",
+{{else}}
+    "kubernetesKubeDNSOptionalFlag": "", 
+{{end}}  
     "networkPolicy": "[parameters('networkPolicy')]",
     "servicePrincipalClientId": "[parameters('servicePrincipalClientId')]",
     "servicePrincipalClientSecret": "[parameters('servicePrincipalClientSecret')]",
